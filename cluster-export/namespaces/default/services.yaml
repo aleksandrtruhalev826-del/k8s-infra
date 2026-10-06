@@ -1,0 +1,601 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"adservice"},"name":"adservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":9555,"targetPort":9555}],"selector":{"app":"adservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: adservice
+    name: adservice
+    namespace: default
+    resourceVersion: "834014"
+    uid: 29169d5a-af60-432c-88ad-c726c458f24b
+  spec:
+    clusterIP: 10.104.119.87
+    clusterIPs:
+    - 10.104.119.87
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 9555
+      protocol: TCP
+      targetPort: 9555
+    selector:
+      app: adservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"cartservice"},"name":"cartservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":7070,"targetPort":7070}],"selector":{"app":"cartservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: cartservice
+    name: cartservice
+    namespace: default
+    resourceVersion: "834063"
+    uid: 47b384e1-1057-49cf-9d67-a2585ad81bbf
+  spec:
+    clusterIP: 10.105.152.91
+    clusterIPs:
+    - 10.105.152.91
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 7070
+      protocol: TCP
+      targetPort: 7070
+    selector:
+      app: cartservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"checkoutservice"},"name":"checkoutservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":5050,"targetPort":5050}],"selector":{"app":"checkoutservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: checkoutservice
+    name: checkoutservice
+    namespace: default
+    resourceVersion: "834102"
+    uid: bc7df988-be24-4e24-90ad-713c27b401d1
+  spec:
+    clusterIP: 10.109.107.117
+    clusterIPs:
+    - 10.109.107.117
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 5050
+      protocol: TCP
+      targetPort: 5050
+    selector:
+      app: checkoutservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"currencyservice"},"name":"currencyservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":7000,"targetPort":7000}],"selector":{"app":"currencyservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: currencyservice
+    name: currencyservice
+    namespace: default
+    resourceVersion: "834042"
+    uid: 1b2641ea-55ac-4b61-af16-2e7930dd92fb
+  spec:
+    clusterIP: 10.110.82.77
+    clusterIPs:
+    - 10.110.82.77
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    selector:
+      app: currencyservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"emailservice"},"name":"emailservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":5000,"targetPort":8080}],"selector":{"app":"emailservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: emailservice
+    name: emailservice
+    namespace: default
+    resourceVersion: "834108"
+    uid: b96d72e0-f81d-4142-8ebe-c3570eb93690
+  spec:
+    clusterIP: 10.102.66.170
+    clusterIPs:
+    - 10.102.66.170
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 5000
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: emailservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"frontend"},"name":"frontend","namespace":"default"},"spec":{"ports":[{"name":"http","port":80,"targetPort":8080}],"selector":{"app":"frontend"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: frontend
+    name: frontend
+    namespace: default
+    resourceVersion: "2376277"
+    uid: 80cc6f91-8dcb-481a-bcf4-553336984973
+  spec:
+    clusterIP: 10.105.48.72
+    clusterIPs:
+    - 10.105.48.72
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 32008
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: frontend
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"frontend"},"name":"frontend-external","namespace":"default"},"spec":{"ports":[{"name":"http","port":80,"targetPort":8080}],"selector":{"app":"frontend"},"type":"LoadBalancer"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: frontend
+    name: frontend-external
+    namespace: default
+    resourceVersion: "833997"
+    uid: 80e90201-ce89-4f88-84e1-0f890ffc26f0
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.111.132.203
+    clusterIPs:
+    - 10.111.132.203
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 31034
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: frontend
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-06T21:24:24Z"
+    name: kafka-nodeport
+    namespace: default
+    resourceVersion: "1960897"
+    uid: fad1663e-fcab-4eb1-9768-84a5dee344cf
+  spec:
+    clusterIP: 10.109.215.74
+    clusterIPs:
+    - 10.109.215.74
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30192
+      port: 9092
+      protocol: TCP
+      targetPort: 9092
+    selector:
+      app: kafka
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"kafka-service","namespace":"default"},"spec":{"ports":[{"port":9092,"protocol":"TCP","targetPort":9092}],"selector":{"app":"kafka"}}}
+    creationTimestamp: "2026-08-25T14:19:37Z"
+    name: kafka-service
+    namespace: default
+    resourceVersion: "809913"
+    uid: fb8c6a91-d285-4f88-ba04-35b469ac0760
+  spec:
+    clusterIP: 10.99.159.199
+    clusterIPs:
+    - 10.99.159.199
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 9092
+      protocol: TCP
+      targetPort: 9092
+    selector:
+      app: kafka
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"kafka-ui-service","namespace":"default"},"spec":{"ports":[{"nodePort":30090,"port":8080,"protocol":"TCP","targetPort":8080}],"selector":{"app":"kafka-ui"},"type":"NodePort"}}
+    creationTimestamp: "2026-08-25T14:28:42Z"
+    name: kafka-ui-service
+    namespace: default
+    resourceVersion: "810835"
+    uid: cab26c20-ee38-4028-bf2c-881326b7c341
+  spec:
+    clusterIP: 10.108.38.12
+    clusterIPs:
+    - 10.108.38.12
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30090
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: kafka-ui
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-08-16T11:10:27Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "196"
+    uid: bbcf6e11-81e6-408c-927a-e8ab943e822b
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"mediawiki-service","namespace":"default"},"spec":{"ports":[{"nodePort":30080,"port":80,"targetPort":80}],"selector":{"app":"mediawiki"},"type":"NodePort"}}
+    creationTimestamp: "2026-08-20T05:59:43Z"
+    name: mediawiki-service
+    namespace: default
+    resourceVersion: "457353"
+    uid: 59eef23e-f36c-49ad-94a0-a40ad02f1a2d
+  spec:
+    clusterIP: 10.105.103.150
+    clusterIPs:
+    - 10.105.103.150
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30080
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: mediawiki
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"nginx","namespace":"default"},"spec":{"ports":[{"port":80,"targetPort":80}],"selector":{"app":"nginx"}}}
+    creationTimestamp: "2026-09-03T12:29:39Z"
+    name: nginx
+    namespace: default
+    resourceVersion: "1554985"
+    uid: aef86258-6fc8-47ae-a132-067e8bf3a703
+  spec:
+    clusterIP: 10.103.84.215
+    clusterIPs:
+    - 10.103.84.215
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: nginx
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"nginx-nodeport","namespace":"default"},"spec":{"ports":[{"nodePort":30081,"port":80,"targetPort":80}],"selector":{"app":"nginx"},"type":"NodePort"}}
+    creationTimestamp: "2026-09-03T16:36:39Z"
+    name: nginx-nodeport
+    namespace: default
+    resourceVersion: "1579545"
+    uid: 1cda26e3-a085-48f1-9028-0f4ac60a795e
+  spec:
+    clusterIP: 10.100.44.191
+    clusterIPs:
+    - 10.100.44.191
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30081
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: nginx
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"paymentservice"},"name":"paymentservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":50051,"targetPort":50051}],"selector":{"app":"paymentservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: paymentservice
+    name: paymentservice
+    namespace: default
+    resourceVersion: "834115"
+    uid: a998abe6-8d0e-428c-b432-0de956923269
+  spec:
+    clusterIP: 10.108.22.87
+    clusterIPs:
+    - 10.108.22.87
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      app: paymentservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"productcatalogservice"},"name":"productcatalogservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":3550,"targetPort":3550}],"selector":{"app":"productcatalogservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: productcatalogservice
+    name: productcatalogservice
+    namespace: default
+    resourceVersion: "834129"
+    uid: e92a6462-a252-41aa-b6e4-36ad39f216ef
+  spec:
+    clusterIP: 10.107.242.241
+    clusterIPs:
+    - 10.107.242.241
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 3550
+      protocol: TCP
+      targetPort: 3550
+    selector:
+      app: productcatalogservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"recommendationservice"},"name":"recommendationservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":8080,"targetPort":8080}],"selector":{"app":"recommendationservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: recommendationservice
+    name: recommendationservice
+    namespace: default
+    resourceVersion: "834092"
+    uid: d1a27839-a9b6-492d-87bc-f00ff481284e
+  spec:
+    clusterIP: 10.104.172.27
+    clusterIPs:
+    - 10.104.172.27
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: recommendationservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"redis-cart"},"name":"redis-cart","namespace":"default"},"spec":{"ports":[{"name":"tcp-redis","port":6379,"targetPort":6379}],"selector":{"app":"redis-cart"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: redis-cart
+    name: redis-cart
+    namespace: default
+    resourceVersion: "834084"
+    uid: 125aa13c-cf18-4c36-8848-c5cff7029048
+  spec:
+    clusterIP: 10.109.185.77
+    clusterIPs:
+    - 10.109.185.77
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-redis
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      app: redis-cart
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"shippingservice"},"name":"shippingservice","namespace":"default"},"spec":{"ports":[{"name":"grpc","port":50051,"targetPort":50051}],"selector":{"app":"shippingservice"},"type":"ClusterIP"}}
+    creationTimestamp: "2026-08-25T18:29:14Z"
+    labels:
+      app: shippingservice
+    name: shippingservice
+    namespace: default
+    resourceVersion: "834122"
+    uid: 1e2e157f-34e6-4bba-a8be-18648a3dedb7
+  spec:
+    clusterIP: 10.107.95.221
+    clusterIPs:
+    - 10.107.95.221
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: grpc
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    selector:
+      app: shippingservice
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

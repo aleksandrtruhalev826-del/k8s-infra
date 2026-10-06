@@ -1,0 +1,88 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIDBTCCAe2gAwIBAgIIKFIfl9g9kGEwDQYJKoZIhvcNAQELBQAwFTETMBEGA1UE
+      AxMKa3ViZXJuZXRlczAeFw0yNjA4MTYxMDQ0NTNaFw0zNjA4MTMxMDQ5NTNaMBUx
+      EzARBgNVBAMTCmt1YmVybmV0ZXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+      AoIBAQC+zQCg0CJNZD1+kflonbQlQVye0aN5vmMkRhB3ITC0oY+Gd6MgU6xX+wtO
+      oO8ZfW+0/MDV+Dw1DsC+1S+plfEqwEI49Q5KWstvbODrfUWJ8q+cPxx1Qr9kxWqs
+      EbdoxlfDO+aVmraQFSRIACDO63YnoCAKue8DIPsZfA6B6yf8NaxWYz1gnhJ9SyJe
+      jj0Ou2CMf2/xEDQClELzBMZ440Y86YAARpTRXhMtJYwpEnQ2TGgU/UP4xVHSOWOL
+      GEg6zGhBgkAE8C6DeeVCGa3HXQ2Yl6k8LoMbl6RNdp6CjlkanecCo9VmHKKUGbeL
+      EqGozhMBBMOvpSxsbjQty6JYhLFlAgMBAAGjWTBXMA4GA1UdDwEB/wQEAwICpDAP
+      BgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBQcLKU3fJqWMsMkMSMzYn7BuRjXtDAV
+      BgNVHREEDjAMggprdWJlcm5ldGVzMA0GCSqGSIb3DQEBCwUAA4IBAQCSiecyFjqb
+      eoNv8ZuJkdWyRdbMCigxIQHC5xAd+yWB7nj2NAosTLsaDKRzoSWYx935m1TeHJdn
+      FEi/7IalLRsV4PmHug+ZQmyfEqnZNqZhZDgjwWQb90epKxNDhKrkNHB9xEXiO1qZ
+      gFLbNgy3T8pWYND6CKf9RlSeQzeUINLoMmNwE40CHIGp9TQvL4IaVFLMQ3yvuQ0B
+      uP/wdNtLxNbCQpKn4GawzabgZ0A1CkK/WIlnqgRMh4ejwy/wiv2/29+EizbJ8ia8
+      x0hAsoTs1D1abTeH5E0rehLsHKxV3hFJYq8uuF890nd2qzWNxpdC8Xjyv30op9UO
+      mQpBxWE4VxOQ
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-09-05T09:01:19Z"
+    name: kube-root-ca.crt
+    namespace: vault
+    resourceVersion: "1746791"
+    uid: 8a69c08b-dd5c-41a2-8382-f608d0de3079
+- apiVersion: v1
+  data:
+    extraconfig-from-values.hcl: |-
+      ui = true
+
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:8200"
+        cluster_address = "[::]:8201"
+        # Enable unauthenticated metrics access (necessary for Prometheus Operator)
+        #telemetry {
+        #  unauthenticated_metrics_access = "true"
+        #}
+      }
+      storage "file" {
+        path = "/vault/data"
+      }
+
+      # Example configuration for using auto-unseal, using Google Cloud KMS. The
+      # GKMS keys must already exist, and the cluster must have a service account
+      # that is authorized to access GCP KMS.
+      #seal "gcpckms" {
+      #   project     = "vault-helm-dev"
+      #   region      = "global"
+      #   key_ring    = "vault-helm-unseal-kr"
+      #   crypto_key  = "vault-helm-unseal-key"
+      #}
+
+      # Example configuration for enabling Prometheus metrics in your config.
+      #telemetry {
+      #  prometheus_retention_time = "30s"
+      #  disable_hostname = true
+      #}
+      disable_mlock = true
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: vault
+      meta.helm.sh/release-namespace: vault
+    creationTimestamp: "2026-09-25T21:32:39Z"
+    labels:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: vault
+      helm.sh/chart: vault-0.34.1
+    name: vault-config
+    namespace: vault
+    resourceVersion: "4604489"
+    uid: 56e14977-2019-42b4-b76c-bf5089574ba8
+kind: List
+metadata:
+  resourceVersion: ""

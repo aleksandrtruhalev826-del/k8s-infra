@@ -1,0 +1,83 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    cni-conf.json: |
+      {
+        "name": "cbr0",
+        "cniVersion": "0.3.1",
+        "plugins": [
+          {
+            "type": "flannel",
+            "delegate": {
+              "hairpinMode": true,
+              "isDefaultGateway": true
+            }
+          },
+          {
+            "type": "portmap",
+            "capabilities": {
+              "portMappings": true
+            }
+          }
+        ]
+      }
+    net-conf.json: |
+      {
+        "Network": "10.244.0.0/16",
+        "EnableNFTables": false,
+        "Backend": {
+          "Type": "vxlan"
+        }
+      }
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","data":{"cni-conf.json":"{\n  \"name\": \"cbr0\",\n  \"cniVersion\": \"0.3.1\",\n  \"plugins\": [\n    {\n      \"type\": \"flannel\",\n      \"delegate\": {\n        \"hairpinMode\": true,\n        \"isDefaultGateway\": true\n      }\n    },\n    {\n      \"type\": \"portmap\",\n      \"capabilities\": {\n        \"portMappings\": true\n      }\n    }\n  ]\n}\n","net-conf.json":"{\n  \"Network\": \"10.244.0.0/16\",\n  \"EnableNFTables\": false,\n  \"Backend\": {\n    \"Type\": \"vxlan\"\n  }\n}\n"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app":"flannel","k8s-app":"flannel","tier":"node"},"name":"kube-flannel-cfg","namespace":"kube-flannel"}}
+    creationTimestamp: "2026-08-16T13:39:45Z"
+    labels:
+      app: flannel
+      k8s-app: flannel
+      tier: node
+    name: kube-flannel-cfg
+    namespace: kube-flannel
+    resourceVersion: "11349"
+    uid: a8c3b53f-4a1b-4efd-8eb9-85b1630e593b
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIDBTCCAe2gAwIBAgIIKFIfl9g9kGEwDQYJKoZIhvcNAQELBQAwFTETMBEGA1UE
+      AxMKa3ViZXJuZXRlczAeFw0yNjA4MTYxMDQ0NTNaFw0zNjA4MTMxMDQ5NTNaMBUx
+      EzARBgNVBAMTCmt1YmVybmV0ZXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+      AoIBAQC+zQCg0CJNZD1+kflonbQlQVye0aN5vmMkRhB3ITC0oY+Gd6MgU6xX+wtO
+      oO8ZfW+0/MDV+Dw1DsC+1S+plfEqwEI49Q5KWstvbODrfUWJ8q+cPxx1Qr9kxWqs
+      EbdoxlfDO+aVmraQFSRIACDO63YnoCAKue8DIPsZfA6B6yf8NaxWYz1gnhJ9SyJe
+      jj0Ou2CMf2/xEDQClELzBMZ440Y86YAARpTRXhMtJYwpEnQ2TGgU/UP4xVHSOWOL
+      GEg6zGhBgkAE8C6DeeVCGa3HXQ2Yl6k8LoMbl6RNdp6CjlkanecCo9VmHKKUGbeL
+      EqGozhMBBMOvpSxsbjQty6JYhLFlAgMBAAGjWTBXMA4GA1UdDwEB/wQEAwICpDAP
+      BgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBQcLKU3fJqWMsMkMSMzYn7BuRjXtDAV
+      BgNVHREEDjAMggprdWJlcm5ldGVzMA0GCSqGSIb3DQEBCwUAA4IBAQCSiecyFjqb
+      eoNv8ZuJkdWyRdbMCigxIQHC5xAd+yWB7nj2NAosTLsaDKRzoSWYx935m1TeHJdn
+      FEi/7IalLRsV4PmHug+ZQmyfEqnZNqZhZDgjwWQb90epKxNDhKrkNHB9xEXiO1qZ
+      gFLbNgy3T8pWYND6CKf9RlSeQzeUINLoMmNwE40CHIGp9TQvL4IaVFLMQ3yvuQ0B
+      uP/wdNtLxNbCQpKn4GawzabgZ0A1CkK/WIlnqgRMh4ejwy/wiv2/29+EizbJ8ia8
+      x0hAsoTs1D1abTeH5E0rehLsHKxV3hFJYq8uuF890nd2qzWNxpdC8Xjyv30op9UO
+      mQpBxWE4VxOQ
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-08-16T13:39:45Z"
+    name: kube-root-ca.crt
+    namespace: kube-flannel
+    resourceVersion: "11346"
+    uid: 8163e855-c2d5-4fb1-a1f8-05c147b58d9b
+kind: List
+metadata:
+  resourceVersion: ""

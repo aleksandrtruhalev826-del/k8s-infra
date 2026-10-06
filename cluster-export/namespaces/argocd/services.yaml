@@ -1,0 +1,274 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: applicationset-controller
+      app.kubernetes.io/name: argocd-applicationset-controller
+      app.kubernetes.io/part-of: argocd
+    name: argocd-applicationset-controller
+    namespace: argocd
+    resourceVersion: "2652019"
+    uid: 438bc375-83e0-4385-80ed-ac4fb9e536ee
+  spec:
+    clusterIP: 10.111.165.78
+    clusterIPs:
+    - 10.111.165.78
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: webhook
+      port: 7000
+      protocol: TCP
+      targetPort: webhook
+    - name: metrics
+      port: 8080
+      protocol: TCP
+      targetPort: metrics
+    selector:
+      app.kubernetes.io/name: argocd-applicationset-controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: dex-server
+      app.kubernetes.io/name: argocd-dex-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-dex-server
+    namespace: argocd
+    resourceVersion: "2652023"
+    uid: a339161c-83ea-40ce-97bf-ba0b52e34d63
+  spec:
+    clusterIP: 10.104.166.69
+    clusterIPs:
+    - 10.104.166.69
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - appProtocol: TCP
+      name: http
+      port: 5556
+      protocol: TCP
+      targetPort: 5556
+    - name: grpc
+      port: 5557
+      protocol: TCP
+      targetPort: 5557
+    - name: metrics
+      port: 5558
+      protocol: TCP
+      targetPort: 5558
+    selector:
+      app.kubernetes.io/name: argocd-dex-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/name: argocd-metrics
+      app.kubernetes.io/part-of: argocd
+    name: argocd-metrics
+    namespace: argocd
+    resourceVersion: "2652027"
+    uid: ea4f65f5-d8f6-4505-ad0e-8486bde9a94e
+  spec:
+    clusterIP: 10.104.49.114
+    clusterIPs:
+    - 10.104.49.114
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 8082
+      protocol: TCP
+      targetPort: 8082
+    selector:
+      app.kubernetes.io/name: argocd-application-controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: notifications-controller
+      app.kubernetes.io/name: argocd-notifications-controller-metrics
+      app.kubernetes.io/part-of: argocd
+    name: argocd-notifications-controller-metrics
+    namespace: argocd
+    resourceVersion: "2652031"
+    uid: e3c297e5-02cc-4995-a3d5-f9011f896aad
+  spec:
+    clusterIP: 10.101.122.80
+    clusterIPs:
+    - 10.101.122.80
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 9001
+      protocol: TCP
+      targetPort: 9001
+    selector:
+      app.kubernetes.io/name: argocd-notifications-controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: redis
+      app.kubernetes.io/name: argocd-redis
+      app.kubernetes.io/part-of: argocd
+    name: argocd-redis
+    namespace: argocd
+    resourceVersion: "2652035"
+    uid: 00542095-9a33-4239-bd3f-b33265760d6d
+  spec:
+    clusterIP: 10.96.179.117
+    clusterIPs:
+    - 10.96.179.117
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-redis
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      app.kubernetes.io/name: argocd-redis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: repo-server
+      app.kubernetes.io/name: argocd-repo-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-repo-server
+    namespace: argocd
+    resourceVersion: "2652039"
+    uid: 890e2343-4528-4657-9be6-428593c615eb
+  spec:
+    clusterIP: 10.109.188.153
+    clusterIPs:
+    - 10.109.188.153
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: server
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    - name: metrics
+      port: 8084
+      protocol: TCP
+      targetPort: 8084
+    selector:
+      app.kubernetes.io/name: argocd-repo-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: server
+      app.kubernetes.io/name: argocd-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-server
+    namespace: argocd
+    resourceVersion: "2652043"
+    uid: 53af602a-47cc-444e-9031-9891163350aa
+  spec:
+    clusterIP: 10.96.23.132
+    clusterIPs:
+    - 10.96.23.132
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app.kubernetes.io/name: argocd-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2026-09-11T20:01:24Z"
+    labels:
+      app.kubernetes.io/component: server
+      app.kubernetes.io/name: argocd-server-metrics
+      app.kubernetes.io/part-of: argocd
+    name: argocd-server-metrics
+    namespace: argocd
+    resourceVersion: "2652047"
+    uid: b7120711-ee27-46b2-807a-9e4e6715666e
+  spec:
+    clusterIP: 10.110.49.80
+    clusterIPs:
+    - 10.110.49.80
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 8083
+      protocol: TCP
+      targetPort: 8083
+    selector:
+      app.kubernetes.io/name: argocd-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

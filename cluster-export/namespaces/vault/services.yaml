@@ -1,0 +1,126 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: vault
+      meta.helm.sh/release-namespace: vault
+    creationTimestamp: "2026-09-25T21:32:39Z"
+    labels:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: vault
+      helm.sh/chart: vault-0.34.1
+    name: vault
+    namespace: vault
+    resourceVersion: "4604501"
+    uid: 0f6c87c7-bcd0-462e-9d98-bc316993659a
+  spec:
+    clusterIP: 10.110.201.159
+    clusterIPs:
+    - 10.110.201.159
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 8200
+      protocol: TCP
+      targetPort: 8200
+    - name: https-internal
+      port: 8201
+      protocol: TCP
+      targetPort: 8201
+    publishNotReadyAddresses: true
+    selector:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/name: vault
+      component: server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: vault
+      meta.helm.sh/release-namespace: vault
+    creationTimestamp: "2026-09-25T21:32:39Z"
+    labels:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: vault-agent-injector
+    name: vault-agent-injector-svc
+    namespace: vault
+    resourceVersion: "4604497"
+    uid: e11d117b-d4cb-4c14-8cc8-7254ae37bcdd
+  spec:
+    clusterIP: 10.107.206.127
+    clusterIPs:
+    - 10.107.206.127
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/name: vault-agent-injector
+      component: webhook
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: vault
+      meta.helm.sh/release-namespace: vault
+    creationTimestamp: "2026-09-25T21:32:39Z"
+    labels:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: vault
+      helm.sh/chart: vault-0.34.1
+      vault-internal: "true"
+    name: vault-internal
+    namespace: vault
+    resourceVersion: "4604493"
+    uid: 1b6772c6-0f22-4cb8-82f5-b6f29a633a46
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 8200
+      protocol: TCP
+      targetPort: 8200
+    - name: https-internal
+      port: 8201
+      protocol: TCP
+      targetPort: 8201
+    publishNotReadyAddresses: true
+    selector:
+      app.kubernetes.io/instance: vault
+      app.kubernetes.io/name: vault
+      component: server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
